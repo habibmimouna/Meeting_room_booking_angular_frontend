@@ -1,1 +1,55 @@
-<p>register works!</p>
+<div class="container">
+    <form (ngSubmit)="onSubmit()" class="signup-container">
+      <h5>Create your account</h5>
+      <p>Please fill all cases carefully </p>
+      <div class="inputs">
+        <div class="col-1">
+          <div class="input-group">
+            <label for="email" id="email">E-mail</label>
+            <input type="text" id="email" [(ngModel)]="user.email" name="email" />
+          </div>
+          <div class="input-group">
+            <label for="username" id="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              [(ngModel)]="user.username"
+              name="username"
+            />
+          </div>
+    
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="Password"
+              [(ngModel)]="user.password"
+              name="password"
+            />
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="input-group">
+            <label for="fullName">Fullname</label>
+            <input
+              type="text"
+              id="fullName"
+              [(ngModel)]="user.fullName"
+              name="fullName"
+            />
+          </div>
+          
+          <div class="input-group">
+            <label for="numéroTel">Phone</label>
+            <input type="text" id="numéroTel" [(ngModel)]="user.phone" name="numéroTel" />
+          </div>
+        </div>
+      </div>
+        <div class="submit-button-container">
+          <button type="submit">Sign up</button>
+        </div>
+        <p class="signin-link">
+          Already have an account? <a routerLink="/auth/login">Log in</a>
+      </p>
+    </form>
+    </div>

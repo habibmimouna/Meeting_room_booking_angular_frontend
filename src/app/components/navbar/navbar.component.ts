@@ -10,7 +10,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  logged_in: boolean = false;
+  logged_in: boolean = true;
   admin!: any;
 
   constructor(private router: Router) { }

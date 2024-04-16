@@ -1,36 +1,36 @@
 <nav class="navbar">
   <div class="container">
-    <div class="navbar-brand" routerLink="/dash">RoomReservePro</div>
+    <div class="navbar-brand" routerLink="/home">RoomReservePro</div>
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/dash" routerLinkActive="active"
+      <li class="nav-item" *ngIf="!logged_in">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active"
           >Home</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!logged_in">
         <a
           class="nav-link"
-          routerLink="/meetingroom-list"
+          routerLink="/reservation"
           routerLinkActive="active"
           >Reservations</a
         >
       </li>
-      <li class="nav-item" *ngIf="admin ==''">
+      <li class="nav-item" *ngIf="!logged_in">
         <a
           class="nav-link"
-          routerLink="/meetingroom-list"
+          routerLink="/auth/register"
           routerLinkActive="active"
           >My Bookings</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!logged_in">
         <a class="nav-link" routerLink="/Account" routerLinkActive="active"
           >Account</a
         >
       </li>
     </ul>
     <div  class="nav-item" *ngIf="!logged_in">
-        <a class="nav-link" routerLink="/auth/login" routerLinkActive="active"
+        <a class="nav-link" routerLink="/" routerLinkActive="active"
           >Log out</a
         >
     </div>
