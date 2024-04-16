@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.navbar-brand {
+  font-size: 4vh;
+  color: black;
+  font-family: inter;
+  cursor: pointer;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  padding-right: 40px;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  font-family: inter;
+  font-size: 3vh;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.login-link {
+  color: white;
+  text-decoration: none;
+  font-family: inter;
+  font-size: 3vh;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}
+
+.active {
+  font-weight: bold;
+}
