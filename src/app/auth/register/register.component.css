@@ -21,11 +21,11 @@
     display: flex;
     justify-content: space-between;
     width: 100%; 
-    gap: 20px;/* Ensure it takes the full width of the container */
+    gap: 20px;
 }
 
 .col-1, .col-2 {
-    flex: 1; /* Each column takes equal width */
+    flex: 1; 
 }
 
 .input-group {
@@ -56,9 +56,9 @@
 
 .submit-button-container {
     margin-top: 2vh;
-    width: 100%; /* Full width */
+    width: 100%;
     display: flex;
-    justify-content: center; /* Center the button */
+    justify-content: center; 
 }
 
 button {
