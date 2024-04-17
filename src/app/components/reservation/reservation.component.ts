@@ -22,6 +22,8 @@ export class ReservationComponent {
 
   }
   openReservationPage(meetingroom:MeetingRoom) {
-    this.router.navigate(['/reservation',meetingroom.id]); // Navigate to reservation page with meeting room ID
+    console.log(meetingroom._id);
+    
+    this.router.navigate(['/booking',meetingroom._id]); // Navigate to reservation page with meeting room ID
   }
 }

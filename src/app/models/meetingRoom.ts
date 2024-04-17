@@ -1,5 +1,5 @@
 export interface MeetingRoom {
-    id?:string;
+    _id?:string;
     name:string;
     capacity: number|null ;
     location: string ;
