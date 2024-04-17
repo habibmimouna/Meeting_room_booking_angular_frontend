@@ -1,1 +1,26 @@
-<p>reservation works!</p>
+<div class="container">
+    <table class="table-container">
+      <thead>
+        <tr>
+          <th><h1>name</h1></th>
+          <th><h1>capacity</h1></th>
+          <th><h1>equipment</h1></th>
+          <th><h1>location</h1></th>
+          <th><h1>Action</h1></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let meetingRoom of meetingRooms">
+        <tr>
+          <td>{{ meetingRoom.name }}</td>
+          <td>{{ meetingRoom.capacity }}</td>
+          <td>{{ meetingRoom.equipment }}</td>
+          <td>{{ meetingRoom.location }}</td>
+          <td>
+            <button (click)="openReservationPage(meetingRoom)" class="button-40">
+              Reservation
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

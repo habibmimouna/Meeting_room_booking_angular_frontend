@@ -10,27 +10,32 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  logged_in: boolean = true;
+  logged_in: boolean = false;
   admin!: any;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+   
+
 
   }
 
   ngDoCheck() {
     this.admin = sessionStorage.getItem("role");
-    const user_sesson_id = sessionStorage.getItem("user_session_id");
-    if(user_sesson_id){
+    const user=localStorage.getItem("currentUser");
+    if(user){
       this.logged_in = true;
     }
-
+    
+    
+    
+   
   
 
 }
 logout(){
-  sessionStorage.removeItem("user_session_id");
+  localStorage.removeItem("currentUser");
   sessionStorage.removeItem("role");
   this.router.navigateByUrl('/sign-in');
   location.reload();

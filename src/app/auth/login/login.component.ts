@@ -36,13 +36,13 @@ export class LoginComponent {
             console.log('Fetched user:', user);
             this.userService.setCurrentUser(user);
 
-            // Check user role and navigate to the appropriate dashboard
+            
             if (user.isAdmin) {
-              // Replace 'admin' with the actual value for admin role
+              
 
-              this.router.navigate(['/Admin-meetingroom-list']);
+              this.router.navigate(['/AdminDash']);
             } else {
-              this.router.navigate(['dash']);
+              this.router.navigate(['/home']);
             }
           }
         });
