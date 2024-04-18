@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { MeetingRoom } from '../../models/meetingRoom';
 import { MeetingRoomService } from '../../services/meeting-room.service';
 import { ActivatedRoute } from '@angular/router';
+import { CalendarComponent } from '../calendar/calendar.component';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [],
+  imports: [CalendarComponent],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css',
 })

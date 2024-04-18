@@ -1,0 +1,27 @@
+<div class="calendar-container">
+    <div>
+      <div>
+        give as the purpose of the reservation please :
+        <input type="text" class="purpose-input" #purposeInput
+        (input)="reservation.purpose = purposeInput.value">
+      </div>
+  
+      <div class="month">
+        <button (click)="changeMonth(-1)">Previous Month</button>
+        <span>{{ selectedYear }} - {{ selectedMonth }}</span>
+        <button (click)="changeMonth(1)">Next Month</button>
+      </div>
+  
+      <div class="month-grid">
+        <button
+          *ngFor="let day of daysInMonth"
+          class="day"
+          (click)="selectDay(day)"
+        >
+          {{ day.getDate() }}
+        </button>
+      </div>
+    </div>
+    
+  </div>
+  

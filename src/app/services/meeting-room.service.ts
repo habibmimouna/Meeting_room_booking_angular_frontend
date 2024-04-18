@@ -28,6 +28,9 @@ export class MeetingRoomService {
     getMeetingRoomList(): Observable<MeetingRoom[]> {
       return this.httpClient.get<MeetingRoom[]>(`${this.baseURL}`);
     }
+    getAvailableHours(day:string,id:string): Observable<MeetingRoom[]> {
+      return this.httpClient.get<MeetingRoom[]>(`${this.baseURL}/getAvailebleHours/${id}`);
+    }
   
     updateMeetingRoom(id: number, meetingRoom: MeetingRoom): Observable<Object> {
       return this.httpClient.put(`${this.baseURL}/${id}`, meetingRoom);
