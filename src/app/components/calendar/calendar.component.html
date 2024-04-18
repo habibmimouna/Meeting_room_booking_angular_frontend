@@ -1,27 +1,48 @@
 <div class="calendar-container">
-    <div>
-      <div>
-        give as the purpose of the reservation please :
-        <input type="text" class="purpose-input" #purposeInput
-        (input)="reservation.purpose = purposeInput.value">
-      </div>
-  
-      <div class="month">
-        <button (click)="changeMonth(-1)">Previous Month</button>
-        <span>{{ selectedYear }} - {{ selectedMonth }}</span>
-        <button (click)="changeMonth(1)">Next Month</button>
-      </div>
-  
-      <div class="month-grid">
-        <button
-          *ngFor="let day of daysInMonth"
-          class="day"
-          (click)="selectDay(day)"
-        >
-          {{ day.getDate() }}
-        </button>
-      </div>
+  <div>
+    <div><h3>Feel free to make any reservation you want </h3></div>
+    <div class="purpose">
+      give as the reservation purpose please :
+      <input
+        type="text"
+        class="purpose-input"
+        #purposeInput
+        (input)="reservation.purpose = purposeInput.value"
+      />
     </div>
-    
+    <div class="hour-month">
+      <div class="month-container">
+        <div class="month-change">
+          <button (click)="changeMonth(-1)">Previous Month</button>
+          <span>{{ selectedYear }} - {{ selectedMonth }}</span>
+          <button (click)="changeMonth(1)">Next Month</button>
+        </div>
+
+        <div class="month-grid">
+          <button
+            *ngFor="let day of daysInMonth"
+            class="day"
+            (click)="selectDay(day)"
+          >
+            {{ day.getDate() }}
+          </button>
+        </div>
+      </div>
+
+      <div class="hours">
+        <div *ngFor="let hour of availableHours" class="hour">
+          <input
+            type="checkbox"
+            [id]="hour"
+            [checked]="isSelectedHour(hour)"
+            (change)="toggleHour(hour)"
+          />
+          <label [for]="hour">{{ hour }}</label>
+        </div>
+      </div>
+      <button [disabled]="!hasCheckedHours" class="reserve-button">Reserve</button>
+    </div>
   </div>
-  
+ 
+</div>
+

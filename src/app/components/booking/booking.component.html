@@ -1,4 +1,4 @@
-<div>
+<div class="holder">
   <div class="container">
     <div class="details">
       <h3>Meeting room details</h3>
@@ -6,9 +6,13 @@
       <p>capacity: {{ MeetingRoomDetails.capacity }}</p>
       <p>equipment: {{ MeetingRoomDetails.equipment }}</p>
       <p>location: {{ MeetingRoomDetails.location }}</p>
+      <div class="instructions">
+        <h4>start by putting the purpose, then select a day and the available hours will appear </h4>
+        <h4></h4>
+      </div>
     </div>
     <div>
-        <app-calendar></app-calendar>
+        <app-calendar ></app-calendar>
     </div>
   </div>
 </div>

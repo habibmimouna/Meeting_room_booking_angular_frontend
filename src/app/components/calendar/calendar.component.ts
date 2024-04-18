@@ -10,22 +10,25 @@ import { MeetingRoomService } from '../../services/meeting-room.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.css'
+  styleUrl: './calendar.component.css',
 })
 export class CalendarComponent {
   currentDate: Date = new Date();
+  daysInMonth: Date[] = [];
+  availableHours: string[] = [];
+  selectedHours: string[] = [];
   selectedYear: number = 0;
   selectedMonth: number = 0;
-  daysInMonth: Date[] = [];
   selectedDay: string = '';
   meetingRoomId: string = '';
+  hasCheckedHours: boolean = false;
 
   reservation: Reservation = {
     day: this.selectedDay,
-    reservedHours:[], //this.selectedHours,
+    reservedHours: [], //this.selectedHours,
     purpose: '',
-    meetingRoom: "",//this.meetingRoomId,
-    user: "",//this.getUserIdFromToken(),
+    meetingRoom: '', //this.meetingRoomId,
+    user: '', //this.getUserIdFromToken(),
   };
 
   constructor(
@@ -43,11 +46,7 @@ export class CalendarComponent {
       this.reservation.meetingRoom = params['id'];
     });
     console.log(this.meetingRoomId);
-    
-    this.meetingRoomService.getAvailableHours(this.selectedDay,this.meetingRoomId).subscribe((data)=>{
-      console.log("hello",data);
-      
-    })
+
     //this.generateHoursOfDay();
   }
 
@@ -70,13 +69,50 @@ export class CalendarComponent {
     this.selectedMonth = newDate.getMonth() + 1;
     this.generateDaysInMonth();
   }
-  selectDay(day: Date): void {
+  async selectDay(day: Date): Promise<void> {
     const month = (day.getMonth() + 1).toString().padStart(2, '0');
     const dayOfMonth = day.getDate().toString().padStart(2, '0');
     const year = day.getFullYear();
     const formattedDate = `${month}-${dayOfMonth}-${year}`;
     this.selectedDay = formattedDate;
-    //this.checkReservations(this.selectedDay);
+    console.log(this.selectedDay, this.meetingRoomId);
+    this.getAvailableHours();
   }
 
+  async getAvailableHours() {
+    try {
+      this.meetingRoomService
+        .getAvailableHours(this.selectedDay, this.meetingRoomId)
+        .subscribe((response: any) => {
+          const availableHours = response.availableHours;
+          if (Array.isArray(availableHours)) {
+            console.log(availableHours);
+
+            this.availableHours = availableHours;
+          } else {
+            console.error('Available hours is not an array:', availableHours);
+          }
+        });
+    } catch (err) {
+      console.log(err);
+      
+    }
+  }
+  isSelectedHour(hour: string): boolean {
+    return this.selectedHours.includes(hour);
+  }
+  toggleHour(hour: string): void {
+    const index = this.selectedHours.indexOf(hour);
+    if (index === -1) {
+      this.selectedHours.push(hour);
+    } else {
+      this.selectedHours.splice(index, 1);
+    }
+    this.updateCheckedStatus();
+    console.log(this.selectedHours);
+    
+  }
+  updateCheckedStatus(): void {
+    this.hasCheckedHours = this.selectedHours.length > 0;
+  }
 }

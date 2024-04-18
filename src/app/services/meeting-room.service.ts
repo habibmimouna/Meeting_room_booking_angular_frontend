@@ -28,8 +28,8 @@ export class MeetingRoomService {
     getMeetingRoomList(): Observable<MeetingRoom[]> {
       return this.httpClient.get<MeetingRoom[]>(`${this.baseURL}`);
     }
-    getAvailableHours(day:string,id:string): Observable<MeetingRoom[]> {
-      return this.httpClient.get<MeetingRoom[]>(`${this.baseURL}/getAvailebleHours/${id}`);
+    getAvailableHours(day:string,id:string): Observable<string[]> {
+      return this.httpClient.get<string[]>(`${this.baseURL}/getAvailebleHours/${id}/${day}`);
     }
   
     updateMeetingRoom(id: number, meetingRoom: MeetingRoom): Observable<Object> {
