@@ -25,10 +25,10 @@ export class CalendarComponent {
 
   reservation: Reservation = {
     day: this.selectedDay,
-    reservedHours: [], //this.selectedHours,
+    reservedHours: this.selectedHours,
     purpose: '',
-    meetingRoom: '', //this.meetingRoomId,
-    user: '', //this.getUserIdFromToken(),
+    meetingRoom: this.meetingRoomId,
+    user: this.getUserIdFromToken(),
   };
 
   constructor(
@@ -47,7 +47,7 @@ export class CalendarComponent {
     });
     console.log(this.meetingRoomId);
 
-    //this.generateHoursOfDay();
+    
   }
 
   generateDaysInMonth(): void {
@@ -69,12 +69,13 @@ export class CalendarComponent {
     this.selectedMonth = newDate.getMonth() + 1;
     this.generateDaysInMonth();
   }
-  async selectDay(day: Date): Promise<void> {
+   selectDay(day: Date): void {
     const month = (day.getMonth() + 1).toString().padStart(2, '0');
     const dayOfMonth = day.getDate().toString().padStart(2, '0');
     const year = day.getFullYear();
     const formattedDate = `${month}-${dayOfMonth}-${year}`;
     this.selectedDay = formattedDate;
+    this.reservation.day=formattedDate;
     console.log(this.selectedDay, this.meetingRoomId);
     this.getAvailableHours();
   }
@@ -111,8 +112,48 @@ export class CalendarComponent {
     this.updateCheckedStatus();
     console.log(this.selectedHours);
     
+    
   }
   updateCheckedStatus(): void {
     this.hasCheckedHours = this.selectedHours.length > 0;
   }
+
+  getUserIdFromToken(): string | null {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      try {
+        const userObject = JSON.parse(currentUser);
+        if (userObject && userObject._id) {
+          return userObject._id;
+        } else {
+          console.error('User object does not contain _id field.');
+          return null;
+        }
+      } catch (error) {
+        console.error('Error parsing currentUser JSON:', error);
+        return null;
+      }
+    } else {
+      console.error('No currentUser found in localStorage.');
+      return null;
+    }
+  }
+  async makeReservation(){
+    console.log(this.reservation);
+    try {
+      await this.reservationService.createReservation(this.reservation).subscribe((data)=>{
+        console.error('reservation made with success:', data);
+        window.location.reload()
+
+      }, (error) => {
+        // Handle error
+        console.error('Error making reservation:', error);
+        // You can also notify the user about the error, show a toast message, etc.
+      });
+    } catch (error) {
+      console.error('Error making reservation:', error);
+      // Handle any unexpected errors here
+    }
+  }
+
 }

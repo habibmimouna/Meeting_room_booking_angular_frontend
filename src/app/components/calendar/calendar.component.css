@@ -1,101 +1,98 @@
-.calendar-container{
-    height: 420px;
+.calendar-container {
+  height: 420px;
 }
-.month-container{
-    width: 400px;
-    margin-right: 20px;
-    margin-left: 10px;
+.month-container {
+  width: 400px;
+  margin-right: 20px;
+  margin-left: 10px;
 }
-.month-change{
-    width: 400px;
-    text-align: center;
-    margin-bottom: 2vh;
+.month-change {
+  width: 400px;
+  text-align: center;
+  margin-bottom: 2vh;
 }
-.day{
-    width: 10vh;
-    height: 4vh;
-    margin:1px;
+.day {
+  width: 10vh;
+  height: 4vh;
+  margin: 1px;
 }
-h3{
-    margin-top: 30px;
-    font-family: Inter;
+h3 {
+  margin-top: 30px;
+  font-family: Inter;
 }
-.hour-month{
-    display: flex;
+.hour-month {
+  display: flex;
 }
-.purpose{
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 10px;
+.purpose {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
-.purpose-input{
-    outline: none;
-    border: 2px solid black;
-    border-radius: 1.8rem;
-    height: 20px;
-    
+.purpose-input {
+  outline: none;
+  border: 2px solid black;
+  border-radius: 1.8rem;
+  height: 20px;
 }
 
 .reserve-button {
-    background-color: #111827;
-    border: 1px solid transparent;
-    border-radius: 1.8rem;
-    box-sizing: border-box;
-    color: #ffffff;
-    cursor: pointer;
-    flex: 0 0 auto;
-    font-family: Inter;
-    font-size: 0.8rem;
-    font-weight: 600;
-    line-height: 1rem;
-    padding: 0.3rem 0.65rem;
-    text-align: center;
-    text-decoration: none #6b7280 solid;
-    text-decoration-thickness: auto;
-    transition-duration: 0.2s;
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: auto;
-    justify-content: end;
-    position: fixed;
-    margin-left: 650px;
-    margin-top: 280px ;
-    
-    
-  }
-  
-  .reserve-button:hover {
-    background-color: #374151;
-  }
-  
-  .reserve-button:focus {
-    box-shadow: none;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-  
-  @media (min-width: 768px) {
-    .reserve-button {
-      padding: 0.75rem 1.5rem;
-    }
-  }
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 1.8rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.3rem 0.65rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  justify-content: end;
+  position: fixed;
+  margin-left: 650px;
+  margin-top: 280px;
+}
 
-  .hour{
-    background: #FFFFFF;
+.reserve-button:hover {
+  background-color: #374151;
+}
+
+.reserve-button:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .reserve-button {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+.hour {
+  background: #ffffff;
   border-radius: 10px;
-  box-shadow: #252561 0 10px 20px -10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px, rgb(51, 51, 51) 0px 0px 0px 2px;
   box-sizing: border-box;
   color: #14141d;
   cursor: pointer;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   opacity: 1;
   outline: 0 solid transparent;
-  padding: 5px 13px;
+  padding: 4px 12px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -103,34 +100,36 @@ h3{
   word-break: break-word;
   border: 0;
   width: 100px;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-left: 50px;
 }
 
-.month-change button{
-    background-color: #111827;
-    border: 1px solid transparent;
-    border-radius: 1.8rem;
-    box-sizing: border-box;
-    color: #ffffff;
-    cursor: pointer;
-    flex: 0 0 auto;
-    font-family: Inter;
-    font-size: 0.8rem;
-    font-weight: 600;
-    line-height: 1rem;
-    padding: 0.3rem 0.65rem;
-    text-align: center;
-    text-decoration: none #6b7280 solid;
-    text-decoration-thickness: auto;
-    transition-duration: 0.2s;
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: auto;
-    justify-content: end;
-    
-    
-
+.month-change button {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 1.8rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1rem;
+  padding: 0.3rem 0.35rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 18vh;
+  justify-content: end;
+}
+.date-data {
+  margin-left: 5px;
+  margin-right: 5px;
 }

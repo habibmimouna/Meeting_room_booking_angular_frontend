@@ -14,7 +14,7 @@
       <div class="month-container">
         <div class="month-change">
           <button (click)="changeMonth(-1)">Previous Month</button>
-          <span>{{ selectedYear }} - {{ selectedMonth }}</span>
+          <span class="date-data">{{ selectedYear }} - {{ selectedMonth }}</span>
           <button (click)="changeMonth(1)">Next Month</button>
         </div>
 
@@ -40,7 +40,7 @@
           <label [for]="hour">{{ hour }}</label>
         </div>
       </div>
-      <button [disabled]="!hasCheckedHours" class="reserve-button">Reserve</button>
+      <button [disabled]="!hasCheckedHours" class="reserve-button" (click)="makeReservation()">Reserve</button>
     </div>
   </div>
  
