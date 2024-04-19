@@ -1,1 +1,42 @@
-<p>account works!</p>
+<div class="container">
+    <div class="bubble-1">
+      <h3 class="details-header">Account details</h3>
+      <div class="Details">
+        <p>Fullname: {{ user.fullName }}</p>
+        <p>username: {{ user.username }}</p>
+        <p>email: {{ user.email }}</p>
+        <p>phone: {{ user.phone }}</p>
+      </div>
+
+
+    </div>
+    <div class="bubble-2" >
+        <div class="table-main-header">currently you have these reservations :</div>
+      <table class="table-container">
+        <thead>
+          <tr>
+            <th><h4>Room name</h4></th>
+            <th><h4>day </h4></th>
+            <th><h4>hours</h4></th>
+            <th><h4>purpose</h4></th>
+            <th><h4>Actions</h4></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let userReservation of userReservations">
+          <tr>
+            <td>hhh</td>
+            <td>{{ userReservation.day }}</td>
+            <td>{{ userReservation.reservedHours }}</td>
+            <td>{{ userReservation.purpose }}</td>
+            <td>
+              <button (click)="deleteReservation(userReservation)" class="button">
+                Delete
+              </button>
+              <button class="button">Modify</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+</div>

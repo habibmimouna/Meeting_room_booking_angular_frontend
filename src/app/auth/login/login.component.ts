@@ -35,6 +35,7 @@ export class LoginComponent {
           if (user) {
             console.log('Fetched user:', user);
             this.userService.setCurrentUser(user);
+           
 
             
             if (user.isAdmin) {

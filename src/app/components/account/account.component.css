@@ -1,0 +1,90 @@
+.container {
+  width: 95%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+
+  padding-top: 20px;
+  margin-left: 30px;
+}
+
+.bubble-1 {
+  width: 25%;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  
+}
+.Details{
+    padding-left: 25px;
+}
+.details-header{
+    padding-left: 20px;
+}
+.bubble-2 {
+  width: 75%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  margin-left: 10px;
+}
+
+tr {
+  text-align: center;
+  font-size: 14px;
+}
+th {
+  width: 40vh;
+}
+th,
+td {
+  padding: 4px;
+  border-bottom: 1px solid #ddd;
+}
+.table-main-header {
+  font-size: 15px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.button {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: Inter;
+  font-size: 0.6rem;
+  font-weight: 400;
+  line-height: 0.3rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.button:hover {
+  background-color: #374151;
+}
+
+.button:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.55rem 1.2rem;
+  }
+}
