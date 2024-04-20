@@ -5,6 +5,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { AccountComponent } from './components/account/account.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { BookingComponent } from './components/booking/booking.component';
+import { ModifyBookingComponent } from './components/modify-booking/modify-booking.component';
 
 export const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: "full" },
@@ -14,4 +15,5 @@ export const routes: Routes = [
     { path: "auth/login", component: LoginComponent },
     { path: "auth/register", component: RegisterComponent },
     { path: "booking/:id", component: BookingComponent },
+    { path: "booking/modify/:id", component: ModifyBookingComponent },
 ];

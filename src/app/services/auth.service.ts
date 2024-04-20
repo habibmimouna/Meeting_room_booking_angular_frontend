@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { User } from '../models/user';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -50,6 +49,9 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('token');
     this.clearUserInfo();
   }
 

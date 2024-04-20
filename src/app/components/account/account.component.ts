@@ -4,11 +4,13 @@ import { Reservation } from '../../models/reservation';
 import { CommonModule } from '@angular/common';
 import { MeetingRoomService } from '../../services/meeting-room.service';
 import { User } from '../../models/user';
+import { Router, RouterLink } from '@angular/router';
+import { MeetingRoom } from '../../models/meetingRoom';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
 })
@@ -24,7 +26,7 @@ export class AccountComponent {
     isAdmin: false,
   };
 
-  constructor(private reservationService: ReservationService,private meetingroomService:MeetingRoomService) {}
+  constructor(private reservationService: ReservationService,private meetingroomService:MeetingRoomService,private router:Router) {}
 
   ngOnInit(): void {
     this.reservationService.getReservationList().subscribe((data) => {
@@ -97,4 +99,17 @@ export class AccountComponent {
       console.error('No currentUser found in localStorage.');
     }
   }
+  openReservationPage(Id:string|undefined) {
+    if (Id) {
+      console.log(Id);
+      this.router.navigate(['/booking/modify', Id]);
+      
+    } else {
+      
+      console.error('Meeting room ID is undefined');
+    } console.log(Id);
+    
+    
+  }
+
 }

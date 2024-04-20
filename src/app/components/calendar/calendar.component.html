@@ -40,7 +40,7 @@
           <label [for]="hour">{{ hour }}</label>
         </div>
       </div>
-      <button [disabled]="!hasCheckedHours" class="reserve-button" (click)="makeReservation()">Reserve</button>
+      <button [disabled]="!hasCheckedHours" class="reserve-button" (click)="makeReservation()">{{modifyOrCreate}}</button>
     </div>
   </div>
  

@@ -17,8 +17,6 @@ export class NavbarComponent {
   constructor(private router: Router,private authService: AuthService) { }
 
   ngOnInit(): void {
-   
-
 
   }
 
@@ -28,18 +26,9 @@ export class NavbarComponent {
     if(user){
       this.logged_in = true;
     }
-    
-    
-    
-   
-  
-
 }
 logout(){
-  this.authService.logout()
-  localStorage.removeItem("currentUser");
-  sessionStorage.removeItem("role");
-  this.router.navigateByUrl('/sign-in');
-  location.reload();
+  this.authService.logout();
+  window.location.href = '/auth/login';
 }
 }

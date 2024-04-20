@@ -22,6 +22,7 @@ export class CalendarComponent {
   selectedDay: string = '';
   meetingRoomId: string = '';
   hasCheckedHours: boolean = false;
+  modifyOrCreate: string = 'Create';
 
   reservation: Reservation = {
     day: this.selectedDay,
@@ -41,13 +42,26 @@ export class CalendarComponent {
     this.selectedYear = this.currentDate.getFullYear();
     this.selectedMonth = this.currentDate.getMonth() + 1;
     this.generateDaysInMonth();
-    this.route.params.subscribe((params) => {
-      this.meetingRoomId = params['id'];
-      this.reservation.meetingRoom = params['id'];
-    });
-    console.log(this.meetingRoomId);
 
-    
+    let path = window.location.pathname;
+    if (path.includes('/booking/modify')) {
+      this.modifyOrCreate = 'modify';
+      console.log(this.modifyOrCreate);
+      this.route.params.subscribe((params) => {
+        this.reservation._id = params['id'];
+        console.log(this.reservation._id);
+      });
+    } else {
+      this.modifyOrCreate = 'Create';
+      console.log(this.modifyOrCreate);
+      this.route.params.subscribe((params) => {
+        this.meetingRoomId = params['id'];
+        this.reservation.meetingRoom = params['id'];
+        console.log(this.reservation._id);
+      });
+    }
+
+    console.log(this.meetingRoomId);
   }
 
   generateDaysInMonth(): void {
@@ -69,13 +83,13 @@ export class CalendarComponent {
     this.selectedMonth = newDate.getMonth() + 1;
     this.generateDaysInMonth();
   }
-   selectDay(day: Date): void {
+  selectDay(day: Date): void {
     const month = (day.getMonth() + 1).toString().padStart(2, '0');
     const dayOfMonth = day.getDate().toString().padStart(2, '0');
     const year = day.getFullYear();
     const formattedDate = `${month}-${dayOfMonth}-${year}`;
     this.selectedDay = formattedDate;
-    this.reservation.day=formattedDate;
+    this.reservation.day = formattedDate;
     console.log(this.selectedDay, this.meetingRoomId);
     this.getAvailableHours();
   }
@@ -96,7 +110,6 @@ export class CalendarComponent {
         });
     } catch (err) {
       console.log(err);
-      
     }
   }
   isSelectedHour(hour: string): boolean {
@@ -111,8 +124,6 @@ export class CalendarComponent {
     }
     this.updateCheckedStatus();
     console.log(this.selectedHours);
-    
-    
   }
   updateCheckedStatus(): void {
     this.hasCheckedHours = this.selectedHours.length > 0;
@@ -138,22 +149,34 @@ export class CalendarComponent {
       return null;
     }
   }
-  async makeReservation(){
+  async makeReservation() {
     console.log(this.reservation);
     try {
-      await this.reservationService.createReservation(this.reservation).subscribe((data)=>{
-        console.error('reservation made with success:', data);
-        window.location.reload()
-
-      }, (error) => {
-        // Handle error
-        console.error('Error making reservation:', error);
-        // You can also notify the user about the error, show a toast message, etc.
-      });
+      if (this.modifyOrCreate == 'Create') {
+        await this.reservationService
+          .createReservation(this.reservation)
+          .subscribe(
+            (data) => {
+              console.error('reservation made with success:', data);
+              window.location.reload();
+            },
+            (error) => {
+              
+              console.error('Error making reservation:', error);
+            
+            }
+          );
+      } else {
+        if (this.reservation._id) {
+          console.log('reservation to update', this.reservation._id);
+          await this.reservationService.updateReservation(this.reservation._id);
+        } else {
+          console.error('Reservation ID is undefined');
+        }
+      }
     } catch (error) {
       console.error('Error making reservation:', error);
-      // Handle any unexpected errors here
+      
     }
   }
-
 }

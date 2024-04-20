@@ -1,5 +1,5 @@
 export interface Reservation {
-    _id?: string;
+    _id?: string ;
     day: string;
     reservedHours: string[]; 
     purpose: string;
