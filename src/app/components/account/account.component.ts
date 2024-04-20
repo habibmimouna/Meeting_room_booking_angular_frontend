@@ -99,10 +99,12 @@ export class AccountComponent {
       console.error('No currentUser found in localStorage.');
     }
   }
-  openReservationPage(Id:string|undefined) {
-    if (Id) {
-      console.log(Id);
-      this.router.navigate(['/booking/modify', Id]);
+  openReservationPage(Id:string|undefined,meetingRoomId:string) {
+    if (Id ) {
+      console.log("resrvation id :",Id);
+      console.log("meetingroom id :",meetingRoomId);
+      
+      this.router.navigate(['/booking/modify', Id,meetingRoomId]);
       
     } else {
       

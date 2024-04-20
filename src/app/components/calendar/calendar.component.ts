@@ -49,7 +49,11 @@ export class CalendarComponent {
       console.log(this.modifyOrCreate);
       this.route.params.subscribe((params) => {
         this.reservation._id = params['id'];
+        this.meetingRoomId = params['meetingRoomId'];
+        this.reservation.meetingRoom = this.meetingRoomId;
+
         console.log(this.reservation._id);
+        console.log('test', this.reservation.meetingRoom);
       });
     } else {
       this.modifyOrCreate = 'Create';
@@ -158,25 +162,30 @@ export class CalendarComponent {
           .subscribe(
             (data) => {
               console.error('reservation made with success:', data);
+              window.alert('reservation created with successfully  :) !!')
               window.location.reload();
             },
             (error) => {
-              
               console.error('Error making reservation:', error);
-            
             }
           );
       } else {
         if (this.reservation._id) {
-          console.log('reservation to update', this.reservation._id);
-          await this.reservationService.updateReservation(this.reservation._id);
+          console.log('reservation to update', this.reservation);
+          await this.reservationService
+            .updateReservation(this.reservation._id, this.reservation)
+            .subscribe((res) => {
+              console.error('reservation updated with success:', res);
+              console.log(res);
+              window.alert('reservation updated with success  :) !!')
+              window.location.reload()
+            });
         } else {
           console.error('Reservation ID is undefined');
         }
       }
     } catch (error) {
       console.error('Error making reservation:', error);
-      
     }
   }
 }

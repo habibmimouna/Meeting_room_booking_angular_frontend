@@ -24,10 +24,10 @@ export class ReservationService {
   deleteReservation(res:Reservation): Observable<Object> {
     return this.httpClient.delete(this.baseURL, { body: { res } });
   }
-  updateReservation(id:string): Observable<Object> {
+  updateReservation(id:string,res:Reservation): Observable<Object> {
     let currentToken = localStorage.getItem('userToken') || '';
     const headers = new HttpHeaders().set('Authorization', currentToken);
-    return this.httpClient.put(`${this.baseURL}`, id, {
+    return this.httpClient.put(`${this.baseURL}`, res, {
       headers: headers,
     });
   }
