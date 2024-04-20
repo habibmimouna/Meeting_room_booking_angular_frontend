@@ -6,6 +6,7 @@ import { MeetingRoomService } from '../../services/meeting-room.service';
 import { User } from '../../models/user';
 import { Router, RouterLink } from '@angular/router';
 import { MeetingRoom } from '../../models/meetingRoom';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -61,12 +62,8 @@ export class AccountComponent {
       return null;
     }
   }
-  getMeetingRoom(id:string){
-    this.meetingroomService.getMeetingRoomById(id).subscribe((data)=>{
-      console.log(data);
-       
-      
-    })
+  getMeetingRoomName(id: string) {
+   
   }
   deleteReservation(reservation: Reservation): void {
     try {
