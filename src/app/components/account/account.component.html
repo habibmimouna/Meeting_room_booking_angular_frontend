@@ -24,7 +24,7 @@
         </thead>
         <tbody *ngFor="let userReservation of userReservations">
           <tr>
-            <td></td>
+            <td>{{ userReservation.meetingRoomName }}</td>
             <td>{{ userReservation.day }}</td>
             <td>{{ userReservation.reservedHours }}</td>
             <td>{{ userReservation.purpose }}</td>

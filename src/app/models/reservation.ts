@@ -5,5 +5,6 @@ export interface Reservation {
     purpose: string;
     meetingRoom: string;
     user: string | null;
+    meetingRoomName?: string; 
   }
   

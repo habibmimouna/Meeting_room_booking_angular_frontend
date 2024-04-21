@@ -78,7 +78,7 @@ export class ReservationComponent {
         },
         (error) => {
           console.error('Error adding meeting room:', error);
-          alert('Oups problem adding meeting room ! try again later ');
+          alert('Fill all meeting room cases please !');
         }
       );
   }
