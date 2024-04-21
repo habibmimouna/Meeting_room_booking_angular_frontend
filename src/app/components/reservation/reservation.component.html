@@ -1,4 +1,53 @@
 <div class="container">
+  <div *ngIf="isAdminUser()">
+    <form (ngSubmit)="onBtnAddClicked()" class="add-meetingroom-container">
+      <tr class="">
+        <td>
+          <input
+            placeholder="Name"
+            type="text"
+            id="name"
+            [(ngModel)]="newMeetingRoom.name"
+            name="name"
+          />
+        </td>
+        <td>
+          <input
+            placeholder="Capacity"
+            type="text"
+            id="capacity"
+            [(ngModel)]="newMeetingRoom.capacity"
+            name="capacity"
+          />
+        </td>
+        <td>
+          <input
+            placeholder="Equipment"
+            type="text"
+            id="equipment"
+            [(ngModel)]="newMeetingRoom.equipment"
+            name="username"
+          />
+        </td>
+        <td>
+          <input
+            placeholder="Location"
+            type="text"
+            id="location"
+            [(ngModel)]="newMeetingRoom.location"
+            name="location"
+            required
+          />
+        </td>
+        <td>
+          <button class="add-button" type="submit">
+            Add meeting room
+          </button>
+        </td>
+      </tr>
+    </form>
+  </div>
+  <div>
     <table class="table-container">
       <thead>
         <tr>
@@ -15,12 +64,22 @@
           <td>{{ meetingRoom.capacity }}</td>
           <td>{{ meetingRoom.equipment }}</td>
           <td>{{ meetingRoom.location }}</td>
-          <td>
-            <button (click)="openReservationPage(meetingRoom)" class="button-40">
+          <td class="actions">
+            <button
+              (click)="openReservationPage(meetingRoom)"
+              class="button-40"
+            >
               Reservation
+            </button>
+            <button
+              (click)=" deleteMeetingRoom(meetingRoom)"
+              class="delete-button"
+            ><img src="../../../assets/delete.png" width="24px" height="24px">
+             
             </button>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
 </div>

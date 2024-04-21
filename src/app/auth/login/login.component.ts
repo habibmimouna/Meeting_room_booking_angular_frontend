@@ -39,9 +39,7 @@ export class LoginComponent {
 
             
             if (user.isAdmin) {
-              
-
-              this.router.navigate(['/AdminDash']);
+              this.router.navigate(['/home']);
             } else {
               this.router.navigate(['/home']);
             }

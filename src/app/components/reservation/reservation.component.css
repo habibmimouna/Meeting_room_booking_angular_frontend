@@ -1,7 +1,53 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
+
+.add-meetingroom-container {
+  margin-top: 25px;
+}
+input {
+  background-color: #c3c3c3;
+  border: 1px solid transparent;
+  border-radius: 1.8rem;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.3rem 0.65rem;
+}
+.input:required {
+  border-color: red;
+  background-color: #ff7272;
+}
+.add-button {
+  background-color: #141a28db;
+  border: 1px solid transparent;
+  border-radius: 1.8rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.3rem 0.65rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
 th {
   width: 20px;
   text-align: center;
@@ -22,10 +68,52 @@ td {
 }
 
 .table-container {
-  border-collapse: collapse; /* Collapse borders between cells */
+  border-collapse: collapse;
+}
+.actions{
+  display: flex;
+  align-items: center;
+  
+  
+}
+.delete-button {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 1.8rem;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.3rem 0.65rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  margin-left: 4px;
+}
+.delete-button:hover {
+  background-color: #374151;
+}
+
+.button-40delete-button:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .button-40 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #111827;
   border: 1px solid transparent;
   border-radius: 1.8rem;
